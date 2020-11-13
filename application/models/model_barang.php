@@ -9,7 +9,7 @@ class model_barang extends CI_Model
     {
         $this->db->insert($table, $data);
     }
-    public function edit_brg($where, $table)
+    public function edit_barang($where, $table)
     {
         return $this->db->get_where($table, $where);
     }

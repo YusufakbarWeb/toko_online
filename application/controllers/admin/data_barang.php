@@ -48,15 +48,15 @@ class Data_barang extends CI_Controller
     public function edit($id)
     {
         $where = array('$id_brg' => $id);
-        $data['barang'] = $this->model_barang->edit_brg($where, 'tb_barang')->result();
+        $data['barang'] = $this->model_barang->edit_barang($where, 'tb_barang')->result();
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
-        $this->load->view('admin/edit_brg', $data);
+        $this->load->view('admin/edit_barang', $data);
         $this->load->view('templates_admin/footer');
     }
     public function update()
     {
-        $id                 = $this->input->post('id');
+        $id                 = $this->input->post('id_brg');
         $nama_brg           = $this->input->post('nama_brg');
         $keterangan         = $this->input->post('keterangan');
         $kategori           = $this->input->post('kategori');
