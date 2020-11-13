@@ -47,7 +47,7 @@ class Data_barang extends CI_Controller
     }
     public function edit($id)
     {
-        $where = array('$id_brg' => $id);
+        $where = array('id_brg' => $id);
         $data['barang'] = $this->model_barang->edit_barang($where, 'tb_barang')->result();
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
