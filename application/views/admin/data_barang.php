@@ -49,8 +49,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?php echo base_url() . 'admin/data_barang/tambah_aksi'; ?>" method="post" enctype="multipart/form-data">
-
+            <!-- <?php echo $error;?> -->
+            <?= form_open_multipart('site/admin/barang/create');?>
+                <!-- <form action="<?php echo base_url('admin/data_barang/tambah_aksi'); ?>" method="post"> -->
                     <div class="form-group">
                         <label>Nama Barang</label>
                         <input type="text" name="nama_brg" class="form-control">
@@ -71,20 +72,18 @@
                         <label>Stok</label>
                         <input type="text" name="stok" class="form-control">
                     </div>
+                   
                     <div class="form-group">
                         <label>Gambar Produk</label><br>
-                        <input type="file" name="gambar" class="form-control">
+                        <input type="file" name="gambar" class="form-control" required>
                     </div>
-
-
-
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
-                </form>
+              
             </div>
-
+            <?= form_close()?>
         </div>
     </div>
 </div>
