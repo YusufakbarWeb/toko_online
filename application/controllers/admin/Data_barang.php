@@ -19,47 +19,39 @@ class Data_barang extends CI_Controller
 
     public function create()
     {
-        
-      $config['upload_path']          = './uploads/';
-      $config['allowed_types']        = 'gif|jpg|png';
-      $config['max_size']             = 2048;
 
-      $this->load->library('upload', $config);
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['max_size']             = 2048;
 
-      if (!$this->upload->do_upload('gambar'))
-      {
-        $error = array('error' => $this->upload->display_errors());
-        echo $error['error'];
-      }
-      else
-      { 
-        if(isset($_FILES['gambar'])){          
-        $data = array('upload_data' => $this->upload->data());
-        $this->vars = [
-            'nama_brg'           => $this->input->post('nama_brg'),
-            'nama_brg'           => $this->input->post('nama_brg'),
-            'kategori'           => $this->input->post('kategori'),
-            'keterangan'         => $this->input->post('keterangan'),
-            'harga'              =>$this->input->post('harga'),
-            'stok'               => $this->input->post('stok'),
-            'gambar'             => $_FILES['gambar']['name']
-          ];
-          
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('gambar')) {
+            $error = array('error' => $this->upload->display_errors());
+            echo $error['error'];
+        } else {
+            if (isset($_FILES['gambar'])) {
+                $data = array('upload_data' => $this->upload->data());
+                $this->vars = [
+                    'nama_brg'           => $this->input->post('nama_brg'),
+                    'nama_brg'           => $this->input->post('nama_brg'),
+                    'kategori'           => $this->input->post('kategori'),
+                    'keterangan'         => $this->input->post('keterangan'),
+                    'harga'              => $this->input->post('harga'),
+                    'stok'               => $this->input->post('stok'),
+                    'gambar'             => $_FILES['gambar']['name']
+                ];
+            }
+            $this->db->insert('tb_barang', $this->vars);
+            redirect('site/admin/data_barang');
         }
-        $this->db->insert('tb_barang', $this->vars );
-        redirect('site/admin/data_barang');
-      }  
     }
 
 
     public function edit($id)
     {
         $where = array('id_brg' => $id);
-<<<<<<< HEAD:application/controllers/admin/data_barang.php
-        $data['barang'] = $this->model_barang->edit_barang($where, 'tb_barang')->result();
-=======
         $data['barang'] = $this->model_barang->edit_brg($where, 'tb_barang')->result();
->>>>>>> e8f01523ef52372a467c5066f70f30971fd59725:application/controllers/admin/Data_barang.php
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/edit_barang', $data);
