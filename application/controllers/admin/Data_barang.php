@@ -50,7 +50,7 @@ class Data_barang extends CI_Controller
 
     public function edit($id)
     {
-        $data=[
+        $data = [
             'barang' => $this->model_barang->edit_brg($id)
         ];
         $this->load->view('templates_admin/header');
@@ -61,13 +61,19 @@ class Data_barang extends CI_Controller
     public function update()
     {
         $data = [
-            'nama_brg'        =>$this->input->post('nama_brg'),
+            'nama_brg'        => $this->input->post('nama_brg'),
             'keterangan'      => $this->input->post('keterangan'),
             'kategori'        => $this->input->post('kategori'),
             'harga'           => $this->input->post('harga'),
             'stok'            => $this->input->post('stok'),
-        ]; 
+        ];
         $this->model_barang->update($data);
+        redirect('admin/data_barang/index');
+    }
+    public function hapus($id)
+    {
+        $where = array('id_brg' => $id);
+        $this->model_barang->hapus_data($where, 'tb_barang');
         redirect('admin/data_barang/index');
     }
 }
