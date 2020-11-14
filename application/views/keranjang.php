@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <h4>Keranjang Belanja</h4>
-    <table class="table-bordered table-striped table-hover">
+    <table class="table table-bordered table-striped table-hover">
         <tr>
             <th>No</th>
             <th>Nama Barang</th>
@@ -24,4 +24,15 @@
             <td>Rp. <?php echo number_format($this->cart->Total(), 0, ',', '.'); ?></td>
         </tr>
     </table>
+    <div align="right">
+        <a href="<?php echo base_url('dashboard/hapus_keranjang') ?>">
+            <div class="btn btn-sm btn-danger">Hapus</div>
+        </a>
+        <a href="<?php echo base_url('dashboard/index') ?>">
+            <div class="btn btn-sm btn-primary">Kembali</div>
+            <a href="<?php echo base_url('dashboard/pembayaran') ?>">
+                <div class="btn btn-sm btn-success">Pembayaran</div>
+            </a>
+        </a>
+    </div>
 </div>
