@@ -9,13 +9,14 @@ class M_barang extends CI_Model
     {
         $this->db->insert($table, $data);
     }
-    public function edit_brg($where)
+    public function edit_brg($id)
     {
-        return $this->db->get_where('tb_barang', $where);
+        return $this->db->get_where('tb_barang', ['id_brg' => $id])->row_array();;
     }
-    public function update_data($where, $data, $table)
+    public function update($data)
     {
-        $this->db->where($where);
-        $this->db->update($table, $data);
+        $this->db->where(['id_brg' => $this->input->post('id_brg')]);
+        $this->db->update('tb_barang', $data);
     }
+   
 }

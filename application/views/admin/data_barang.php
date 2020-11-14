@@ -51,7 +51,6 @@
             <div class="modal-body">
             <!-- <?php echo $error;?> -->
             <?= form_open_multipart('site/admin/barang/create');?>
-                <!-- <form action="<?php echo base_url('admin/data_barang/tambah_aksi'); ?>" method="post"> -->
                     <div class="form-group">
                         <label>Nama Barang</label>
                         <input type="text" name="nama_brg" class="form-control">

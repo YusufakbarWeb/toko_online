@@ -50,8 +50,9 @@ class Data_barang extends CI_Controller
 
     public function edit($id)
     {
-        $where = array('id_brg' => $id);
-        $data['barang'] = $this->model_barang->edit_brg($where, 'tb_barang')->result();
+        $data=[
+            'barang' => $this->model_barang->edit_brg($id)
+        ];
         $this->load->view('templates_admin/header');
         $this->load->view('templates_admin/sidebar');
         $this->load->view('admin/edit_barang', $data);
@@ -59,24 +60,14 @@ class Data_barang extends CI_Controller
     }
     public function update()
     {
-        $id                 = $this->input->post('id_brg');
-        $nama_brg           = $this->input->post('nama_brg');
-        $keterangan         = $this->input->post('keterangan');
-        $kategori           = $this->input->post('kategori');
-        $harga              = $this->input->post('harga');
-        $stok               = $this->input->post('stok');
-
-        $data = array(
-            'nama_brg'        => $nama_brg,
-            'keterangan'      => $keterangan,
-            'kategori'        => $kategori,
-            'harga'           => $harga,
-            'stok'            => $stok
-        );
-        $where = array(
-            'id_brg' => $id
-        );
-        $this->model_barang->update_data($where, $data, 'tb_barang');
+        $data = [
+            'nama_brg'        =>$this->input->post('nama_brg'),
+            'keterangan'      => $this->input->post('keterangan'),
+            'kategori'        => $this->input->post('kategori'),
+            'harga'           => $this->input->post('harga'),
+            'stok'            => $this->input->post('stok'),
+        ]; 
+        $this->model_barang->update($data);
         redirect('admin/data_barang/index');
     }
 }
