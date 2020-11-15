@@ -31,7 +31,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="register.html">Buat Akun Baru</a>
+                                        <a class="small" href="<?php echo base_url('registrasi/index'); ?>">Registrasi</a>
                                     </div>
                                 </div>
                             </div>
