@@ -7,6 +7,15 @@ class Data_barang extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_barang', 'model_barang');
+        if ($this->session->userdata('role_id') != '1') {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Anda Belum Login......Silahkan Login Dulu!!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>');
+            redirect('auth/login');
+        }
     }
     public function index()
     {
