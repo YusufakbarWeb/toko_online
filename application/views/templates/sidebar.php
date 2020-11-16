@@ -125,7 +125,7 @@
 
                             <div class="topbar-divider d-none d-sm-block"></div>
                             <ul class="na navbar-nav navbar-right">
-                                <?php if ($this->session->userdata('username')) { ?>
+                                <?php if ($this->session->userdata('email')) { ?>
                                     <li class="nav-item dropdown no-arrow">
                                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('nama') ?></span>
@@ -141,7 +141,9 @@
                                         </div>
                                     </li>
                                 <?php } else { ?>
-                                    <li><?php echo anchor('auth/login', 'login') ?></li>
+                                    <li>
+                                        <a href="<?php echo base_url('auth/login') ?>" class="btn btn-primary">Login</a>
+                                    </li>
                                 <?php } ?>
                             </ul>
                         </div>

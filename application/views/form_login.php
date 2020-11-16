@@ -19,8 +19,8 @@
                                     <?php echo $this->session->flashdata('pesan'); ?>
                                     <form method="POST" action="<?php echo base_url('auth/login'); ?>" class="user">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="username" placeholder="Username" name="username">
-                                            <?php echo form_error('username', '<div class="text-danger small">', '</div>'); ?>
+                                            <input type="email" class="form-control form-control-user" id="username" placeholder="Email" name="email">
+                                            <?php echo form_error('email', '<div class="text-danger small">', '</div>'); ?>
 
                                         </div>
                                         <div class="form-group">
