@@ -6,8 +6,8 @@
                 <?php
                 $grand_total = 0;
                 if ($keranjang = $this->cart->contents()) {
-                    foreach ($keranjang as $item) {
-                        $grand_total = $grand_total + $item['subtotal'];
+                    foreach ($keranjang as $items) {
+                        $grand_total = $grand_total + $items['subtotal'];
 
                         echo "<h4>Total Pembayaran: Rp. " . number_format($grand_total, 0, ',', '.');
                     }
